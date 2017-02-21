@@ -1,31 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <title>Shopping Cart</title>
-    <!--  Style Sheet  -->
+    <title>Document</title>
+
+    <!--  styles  -->
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <!--First Drop Target-->
-    <h2>Drag blocks from Store to Cart to add, <br> drag out of Cart to remove</h2>
-    <div id="store" class="container">
-       <h2>Store</h2>
-       <div class="clear"></div>
-        <div id="box1" draggable="true" class="draggable box navy"></div>
-        <div id="box2" draggable="true" class="draggable box red"></div>
-        <div id="box3" draggable="true" class="draggable box green"></div>
-        <div id="box4" draggable="true" class="draggable box orange"></div>
+    <link rel="stylesheet" href="css/mygrid.css">
+  </head>
+  <body>
+
+    <header>
+      <h1>SHOPPING CART</h1>
+
+      <nav>
+        <ul>
+          <li><a href="#">BAGS</a></li>
+          <li><a href="#">WATCHES</a></li>
+          <li><a href="#">SHEOS</a></li>
+          <li><a href="#">CLOTHES</a></li>
+        </ul>
+      </nav>
+      <hr>
+    </header>
+
+
+    <div class="wrapper">
+     
+      <div id="cart" class="cart">
+        <div class="cart-header">
+          <h2>CART </h2>
+        </div>
+
+        <div id="item-2" class="col-50 shop-item"  draggable="true">
+          <img draggable="false" src="img/bag2.jpg" alt="">
+          <p class="num">1</p>
+          <h3>Izangi</h3>
+          <h2>$<span class="price">240</span></h2>
+        </div>
+        
+        
+      </div>
+
+      <div class="shop">
+        <div class="row">
+         
+          <div id="item-1" class="col-50 shop-item"  draggable="true">
+            <img draggable="false" src="img/bag1.jpeg" alt="">
+            <p class="num"></p>
+            <h3>Yogo Bag</h3>
+            <h2>$240</h2>
+          </div>
+          
+          <div id="item-2" class="col-50 shop-item"  draggable="true">
+            <img draggable="false" src="img/bag2.jpg" alt="">
+            <p class="num"></p>
+            <h3>Izangi</h3>
+            <h2>$240</h2>
+          </div>
+          
+        </div>
+      </div>
+      
+      
     </div>
 
-    <!--Second Drop Target-->
-    <div id="cart" class="container">
-        <h2>Cart</h2>
-        <div class="clear"></div>
-    </div>
-    
-    <!--  Scripts  -->
+
     <script src="js/jquery.min.js"></script>
     <script src="js/myscript.js"></script>
-</body>
+  </body>
 </html>

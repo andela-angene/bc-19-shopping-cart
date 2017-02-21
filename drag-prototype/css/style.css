@@ -1,0 +1,33 @@
+h2 {
+    color: #3e3e3e;
+    margin-left: 80px;
+}
+.clearfix{clear: both;}
+.container {
+    min-height: 270px;
+    width: 250px;
+    margin: 25px;
+    background-color: #e0e0e0;
+    float: left;
+}
+.box {
+    width: 100px;
+    height: 100px;
+    float: left;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+.navy {
+    background-color: navy;
+}
+.red {
+    background-color: red;
+}
+.green {
+    background-color: green;
+}
+.orange {
+    background-color: orange;
+}

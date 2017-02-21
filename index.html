@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <!--  Style Sheet  -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--First Drop Target-->
+    <h2>Drag blocks from Store to Cart to add, <br> drag out of Cart to remove</h2>
+    <div id="store" class="container">
+       <h2>Store</h2>
+       <div class="clear"></div>
+        <div id="box1" draggable="true" class="draggable box navy"></div>
+        <div id="box2" draggable="true" class="draggable box red"></div>
+        <div id="box3" draggable="true" class="draggable box green"></div>
+        <div id="box4" draggable="true" class="draggable box orange"></div>
+    </div>
+
+    <!--Second Drop Target-->
+    <div id="cart" class="container">
+        <h2>Cart</h2>
+        <div class="clear"></div>
+    </div>
+    
+    <!--  Scripts  -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/myscript.js"></script>
+</body>
+</html>

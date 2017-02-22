@@ -1,6 +1,7 @@
 //Variables
 var draggable = $('.shop-item'),
-    cart = document.getElementById('cart');
+    cart = document.getElementById('cart'),
+    total = $('#total');
 
 //Functions:
 //Drag start 
@@ -11,10 +12,17 @@ function dragStart(event) {
 //Remove from cart
 function removeFromCart(event) {
   if (event.dataTransfer.dropEffect == 'none') {
-    var num = parseInt($(this).html());
-    if (num > 1) {
-      $(this).html(num - 1);
+    var num = $(this).find('.num');
+    
+    if (parseInt(num.html()) > 1) {
+      num.html(num.html() - 1);
+      //Update total price
+      var totalPrice = parseInt(total.html()) - parseInt($(this).find('.price').html());
+      total.html(totalPrice);
     } else {
+      //Update total price
+      var totalPrice = parseInt(total.html()) - parseInt($(this).find('.price').html());
+      total.html(totalPrice);
       $(this).remove();
     }
   }
@@ -34,8 +42,8 @@ function dragDrop(event) {
   if (id == '') return;
 
   //New id for the item when it's added to the cart
-  var newID = id + '-cart';
-  var jStoreItem = $('#' + newID);
+  var newID = id + '-cart',
+      jStoreItem = $('#' + newID);
 
   //Check if item already exists in the cart
   if (jStoreItem.html() == undefined) {
@@ -48,14 +56,22 @@ function dragDrop(event) {
 
     //Append the item to cart and set number of items in cart
     this.appendChild(storeItem);
-//    $('#' + newID).html('1');
+    $('#' + newID + ' .num').html('1');
+    
+    //Update total price
+    var totalPrice = parseInt(total.html()) + parseInt($('#' + newID + ' .price').html());
+    total.html(totalPrice);
 
     //Add event listener to enable removal of item
     storeItem.addEventListener('dragend', removeFromCart);
   } else {
-
+    //Update total price
+    var totalPrice = parseInt(total.html()) + parseInt($('#' + newID + ' .price').html());
+    total.html(totalPrice);
+    
     //Item already exists, increment number in cart
-    jStoreItem.html(parseInt(jStoreItem.html()) + 1);
+    var num =  $('#' + newID + ' .num');
+    num.html(parseInt(num.html()) + 1);
   }
 }
 
@@ -73,6 +89,5 @@ cart.addEventListener('drop', dragDrop);
 
 
 $(document).ready(function () {
-  console.log($('header').height());
   $('body').css('padding-top', $('header').height() + 'px');
 });

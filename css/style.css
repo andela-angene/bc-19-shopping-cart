@@ -28,7 +28,9 @@ Alert box
   padding: 20px;
   background-color: #fff;
   position: fixed;
-  left: 48%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 1000;
   border: 1px solid #333;
   border-radius: 10px;
@@ -215,10 +217,11 @@ Grids
   .shop{width: 100%;}
 }
 
-@media (max-width: 500px){
+@media (max-width: 767px){
   .col-50{
     width: 100%;
   }
   .shop-item{width: 94%;}
+  .cart .shop-item{width: 45%;}
 }
 

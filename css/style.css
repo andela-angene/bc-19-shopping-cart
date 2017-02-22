@@ -14,6 +14,9 @@ img{
 .text-right{
   text-align: right;
 }
+.drag-enter{
+  border: 1px solid #333;
+}
 
 /*
 Grids
@@ -29,8 +32,7 @@ Navigation
 */
 header{
   width: 100%;
-  position: fixed;
-  top: 0;
+  position: relative;
   background-color: #ecf0f1;
   text-align: center;
   box-sizing: border-box;
@@ -75,9 +77,8 @@ Shop
 .shop{
   width: 56%;
   float: left;
-  min-height: 1700px;
   box-sizing: border-box;
-  margin-left: 15px;
+  margin-left: 1%;
   padding-top: 20px;
 }
 .shop .shop-item{
@@ -94,19 +95,23 @@ Shop
 .shop h2{
   color: #d35400;
 }
-
+.category{
+  display: none;
+}
+#bags{
+  display: block;
+}
 /*
 Cart
 */
 .cart{
   width: 40%;
-  position: fixed;
-  right: 0;
-  margin: 15px;
+  position: relative;
+  float: right;
+  margin: 15px 1%;
   border-radius: 10px;
   background-color: #ecf0f1;
-  max-height: 80%;
-  min-height: 80%;
+  min-height: 400px;
   overflow: auto;
 
 }
@@ -125,6 +130,7 @@ Cart
   margin-top: 10px;
   background-color: #fff;
   border-radius: 10px;
+  border: 1px solid #333;
 }
 .cart img{
   border-radius: 10px;

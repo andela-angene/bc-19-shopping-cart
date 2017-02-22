@@ -36,6 +36,7 @@ function allowDrop(event) {
 //Drop function
 function dragDrop(event) {
   event.preventDefault();
+  $('.cart').removeClass('drag-enter');
 
   //Get the drag item id
   var id = event.dataTransfer.getData('text');
@@ -75,6 +76,15 @@ function dragDrop(event) {
   }
 }
 
+//Drag Over function
+function dragEnter(event){
+  $('.cart').addClass('drag-enter');
+}
+//Drag Leave function
+function dragLeave(event){
+  $('.cart').removeClass('drag-enter');
+}
+
 //Add event listener to the draggable items
 for (var i = 0; i < draggable.length; i++) {
 
@@ -85,9 +95,18 @@ for (var i = 0; i < draggable.length; i++) {
 //Add event listeners to the cart
 cart.addEventListener('dragover', allowDrop);
 cart.addEventListener('drop', dragDrop);
+cart.addEventListener('dragover', dragEnter);
+cart.addEventListener('dragleave', dragLeave);
 
 
 
 $(document).ready(function () {
-  $('body').css('padding-top', $('header').height() + 'px');
+  
+  //Show by categories
+  $('nav a').on('click', function(){
+    $('.category').hide();
+    $('#' + this.id.slice(5)).fadeIn();
+  });
 });
+
+

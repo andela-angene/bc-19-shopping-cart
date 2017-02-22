@@ -13,7 +13,7 @@ function dragStart(event) {
 function removeFromCart(event) {
   if (event.dataTransfer.dropEffect == 'none') {
     var num = $(this).find('.num');
-    
+
     if (parseInt(num.html()) > 1) {
       num.html(num.html() - 1);
       //Update total price
@@ -57,7 +57,7 @@ function dragDrop(event) {
     //Append the item to cart and set number of items in cart
     this.appendChild(storeItem);
     $('#' + newID + ' .num').html('1');
-    
+
     //Update total price
     var totalPrice = parseInt(total.html()) + parseInt($('#' + newID + ' .price').html());
     total.html(totalPrice);
@@ -68,7 +68,7 @@ function dragDrop(event) {
     //Update total price
     var totalPrice = parseInt(total.html()) + parseInt($('#' + newID + ' .price').html());
     total.html(totalPrice);
-    
+
     //Item already exists, increment number in cart
     var num =  $('#' + newID + ' .num');
     num.html(parseInt(num.html()) + 1);

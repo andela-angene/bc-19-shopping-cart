@@ -14,6 +14,19 @@ img{
 .text-right{
   text-align: right;
 }
+
+/*
+Grids
+*/
+.col-50{
+  width: 46%;
+  margin-left: 1%;
+  float: left;
+}
+
+/*
+Navigation
+*/
 header{
   width: 100%;
   position: fixed;
@@ -52,7 +65,9 @@ hr{
 }
 
 
-
+/*
+Shop
+*/
 .wrapper{
   display: block;
   position: relative;
@@ -80,6 +95,9 @@ hr{
   color: #d35400;
 }
 
+/*
+Cart
+*/
 .cart{
   width: 40%;
   position: fixed;
@@ -98,6 +116,9 @@ hr{
   background-color: #3498db;
   border-radius: 10px;
   color: #fff;
+}
+.shop-item{
+  margin-bottom: 10px;
 }
 .cart .shop-item{
   padding: 10px 5px;
@@ -124,7 +145,7 @@ hr{
   padding: 15px;
   background-color: #bdc3c7;
   border-radius: 10px;
-  
+
 }
 .summary h2{
   text-align: center;

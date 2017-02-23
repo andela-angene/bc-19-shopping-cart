@@ -6,45 +6,13 @@ $(document).ready(function () {
       count = $('#count');
 
   //Functions:
-  //Drag start 
+
+  //On drag start, store the item's id
   function dragStart(event) {
     event.dataTransfer.setData('text', this.id);
   }
   
-  //Drag out of cart
-  function dragOut(event){
-    if (event.dataTransfer.dropEffect == 'none') {
-        
-      removeFromCart(this.id);
-    }
-  }
-  
-  //Remove from cart
-  function removeFromCart(id) {
-    id = '#' + id;
-    var num = $(id).find('.num');
-
-    if (parseInt(num.html()) > 1) {
-      num.html(num.html() - 1);
-      //Update total price
-      total.html(parseInt(total.html()) - parseInt($(id).find('.price').html()));
-      count.html(parseInt(count.html()) - 1);
-      $('#alert-rm').fadeIn().delay(300).slideUp();
-    } else {
-      //Update total price
-      total.html(parseInt(total.html()) - parseInt($(id).find('.price').html()));
-      count.html(parseInt(count.html()) - 1);
-      $(id).remove();
-      $('#alert-rm').fadeIn().delay(300).slideUp();
-    }
-  }
-
-  //Allow drop
-  function allowDrop(event) {
-    event.preventDefault();
-  }
-
-  //Add to Cart
+  //Add item to cart
   function addToCart(id){
     //New id for the item when it's added to the cart
     var newID = id + '-cart',
@@ -86,6 +54,39 @@ $(document).ready(function () {
     }
   }
 
+  //Drag out of cart
+  function dragOut(event){
+    if (event.dataTransfer.dropEffect === 'none') {
+
+      removeFromCart(this.id);
+    }
+  }
+
+  //Remove from cart
+  function removeFromCart(id) {
+    id = '#' + id;
+    var num = $(id).find('.num');
+
+    if (parseInt(num.html()) > 1) {
+      num.html(num.html() - 1);
+      //Update total price
+      total.html(parseInt(total.html()) - parseInt($(id).find('.price').html()));
+      count.html(parseInt(count.html()) - 1);
+      $('#alert-rm').fadeIn().delay(300).slideUp();
+    } else {
+      //Update total price
+      total.html(parseInt(total.html()) - parseInt($(id).find('.price').html()));
+      count.html(parseInt(count.html()) - 1);
+      $(id).remove();
+      $('#alert-rm').fadeIn().delay(300).slideUp();
+    }
+  }
+
+  //Allow drop
+  function allowDrop(event) {
+    event.preventDefault();
+  }
+
   //On Drop function
   function dragDrop(event) {
     event.preventDefault();
@@ -93,7 +94,7 @@ $(document).ready(function () {
 
     //Get the drag item id
     var id = event.dataTransfer.getData('text');
-    if (id == '') return;
+    if (id === '') return;
 
     addToCart(id);
   }
@@ -102,10 +103,21 @@ $(document).ready(function () {
   function dragEnter(event){
     $('.cart').addClass('drag-enter');
   }
+  
   //Drag Leave function
   function dragLeave(event){
     $('.cart').removeClass('drag-enter');
   }
+  
+  //Show by categories
+  function showByCat(id){
+    $('nav a').removeClass('active');
+    $('#' + id).addClass('active');
+    $('.category').hide();
+    $('#' + id.slice(5)).fadeIn();
+  }
+  
+  //End Functions
 
   //Add event listener to the draggable items
   for (var i = 0; i < draggable.length; i++) {
@@ -113,26 +125,28 @@ $(document).ready(function () {
     //Store the draggable id when dragging starts
     draggable[i].addEventListener('dragstart', dragStart);
   }
-
+if (cart){
   //Add event listeners to the cart
   cart.addEventListener('dragover', allowDrop);
   cart.addEventListener('drop', dragDrop);
   cart.addEventListener('dragover', dragEnter);
   cart.addEventListener('dragleave', dragLeave);
-  
+}
+
+  if(window.location.search){
+    showByCat(window.location.search.slice(5));
+  };
+    
   //Show by categories
   $('nav a').on('click', function(){
-    $('nav a').removeClass('active');
-    $(this).addClass('active');
-    $('.category').hide();
-    $('#' + this.id.slice(5)).fadeIn();
+    showByCat(this.id);
   });
-  
+
   //Button to Add or Remove from cart
   $('.shop-item').on('click', '.add-to-cart', function(){
     addToCart($(this).parent().attr('id'));
   });
   
+  $('.top-right').attr('draggable', false);
+
 });
-
-

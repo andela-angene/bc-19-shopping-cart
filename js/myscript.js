@@ -11,7 +11,7 @@ $(document).ready(function () {
   function dragStart(event) {
     event.dataTransfer.setData('text', this.id);
   }
-  
+
   //Add item to cart
   function addToCart(id){
     //New id for the item when it's added to the cart
@@ -39,26 +39,18 @@ $(document).ready(function () {
       //Add event listener to enable removal of item
       storeItem.addEventListener('dragend', dragOut);
       $('#' + newID).on('click', '.rm-from-cart', function(){
-        console.log('ready');
         removeFromCart($(this).parent().attr('id'));
       });
     } else {
-      //Update total price and count
-      total.html(parseInt(total.html()) + parseInt($('#' + newID + ' .price').html()));
-      count.html(parseInt(count.html()) + 1);
 
       //Item already exists, increment number in cart
       var num =  $('#' + newID + ' .num');
       num.html(parseInt(num.html()) + 1);
       $('#alert').fadeIn().delay(300).slideUp();
-    }
-  }
 
-  //Drag out of cart
-  function dragOut(event){
-    if (event.dataTransfer.dropEffect === 'none') {
-
-      removeFromCart(this.id);
+      //Update total price and count
+      total.html(parseInt(total.html()) + parseInt($('#' + newID + ' .price').html()));
+      count.html(parseInt(count.html()) + 1);
     }
   }
 
@@ -82,12 +74,19 @@ $(document).ready(function () {
     }
   }
 
+  //Drag out of cart
+  function dragOut(event){
+    if (event.dataTransfer.dropEffect === 'none') {
+      removeFromCart(this.id);
+    }
+  }
+
   //Allow drop
   function allowDrop(event) {
     event.preventDefault();
   }
 
-  //On Drop function
+  //On Drop, add item to cart
   function dragDrop(event) {
     event.preventDefault();
     $('.cart').removeClass('drag-enter');
@@ -103,12 +102,12 @@ $(document).ready(function () {
   function dragEnter(event){
     $('.cart').addClass('drag-enter');
   }
-  
+
   //Drag Leave function
   function dragLeave(event){
     $('.cart').removeClass('drag-enter');
   }
-  
+
   //Show by categories
   function showByCat(id){
     $('nav a').removeClass('active');
@@ -116,7 +115,7 @@ $(document).ready(function () {
     $('.category').hide();
     $('#' + id.slice(5)).fadeIn();
   }
-  
+
   //End Functions
 
   //Add event listener to the draggable items
@@ -125,28 +124,29 @@ $(document).ready(function () {
     //Store the draggable id when dragging starts
     draggable[i].addEventListener('dragstart', dragStart);
   }
-if (cart){
+
   //Add event listeners to the cart
-  cart.addEventListener('dragover', allowDrop);
-  cart.addEventListener('drop', dragDrop);
-  cart.addEventListener('dragover', dragEnter);
-  cart.addEventListener('dragleave', dragLeave);
-}
+  if (cart){
+    cart.addEventListener('dragover', allowDrop);
+    cart.addEventListener('drop', dragDrop);
+    cart.addEventListener('dragover', dragEnter);
+    cart.addEventListener('dragleave', dragLeave);
+  }
 
   if(window.location.search){
     showByCat(window.location.search.slice(5));
   };
-    
+
   //Show by categories
   $('nav a').on('click', function(){
     showByCat(this.id);
   });
 
-  //Button to Add or Remove from cart
+  //Add event listener for 'add-to-cart' button
   $('.shop-item').on('click', '.add-to-cart', function(){
     addToCart($(this).parent().attr('id'));
   });
-  
+
   $('.top-right').attr('draggable', false);
 
 });

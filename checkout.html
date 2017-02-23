@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Shopping Cart</title>
+
+    <!--  Stylesheet  -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <!--  Header and Navigation -->
+    <header>
+      <h1>SHOPPING CART</h1>
+
+      <nav>
+        <ul>
+          <li><a id="show-bags" href="index.html?cat=show-bags">BAGS</a></li>
+          <li><a id="show-watches" href="index.html?cat=show-watches">WATCHES</a></li>
+          <li><a id="show-shoes" href="index.html?cat=show-shoes">SHOES</a></li>
+          <li><a id="show-clothes" href="index.html?cat=show-clothes">CLOTHES</a></li>
+        </ul>
+      </nav>
+      <hr>
+    </header>
+
+    <div class="order-form">
+
+      <h2>Billing and Shipping Information</h2>
+      <div class="group">
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name">
+      </div>
+      <div class="group">
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name">
+      </div>
+      <div class="group">
+        <label for="email">Email:</label>
+        <input type="text" id="email">
+      </div>
+      <div class="group">
+        <label for="address">Address:</label>
+        <input type="text" id="address">
+      </div>
+      <div class="group">
+        <label for="city">City:</label>
+        <input type="text" id="city">
+      </div>
+      <div class="group">
+        <label for="country">Country:</label>
+        <input type="text" id="country">
+      </div>
+      <div class="group">
+        <a href="index.html" id="purchase" class="btn">Purchase</a>
+      </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+    <!--  Footer  -->
+    <footer>
+      <p>&copy Andela, designed by Anthony Ngene</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/myscript.js"></script>
+  </body>
+</html>

@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width">
     <title>Shopping Cart</title>
 
-    <!--  styles  -->
+    <!--  Stylesheet  -->
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
 
+    <!--  Header and Navigation -->
     <header>
       <h1>SHOPPING CART</h1>
 
       <nav>
         <ul>
-          <li><a id="show-bags" href="#">BAGS</a></li>
+          <li><a id="show-bags" href="#" class="active">BAGS</a></li>
           <li><a id="show-watches" href="#">WATCHES</a></li>
           <li><a id="show-shoes" href="#">SHOES</a></li>
           <li><a id="show-clothes" href="#">CLOTHES</a></li>
@@ -27,12 +28,14 @@
 
     <div class="wrapper">
 
+      <!--   Alerts  -->
       <div id="alert" class="alert"><h3>Item added!</h3></div>
       <div id="alert-rm" class="alert"><h3>Item removed!</h3></div>
 
+      <!--   Cart Section  -->
       <div id="cart" class="cart">
         <div class="cart-header">
-          <h2>CART </h2>
+          <h2>CART <span class="counter">(<span id="count">0</span>)</span></h2>
         </div>
 
         <div class="summary">
@@ -41,17 +44,20 @@
             Shipping <br>
             <h3>Total</h3>
           </div>
-          <div class="col-50 text-right">
+          <div class="col-50 total-price">
             Free
             <h3>$<span id="total">0</span></h3>
           </div>
           <div class="clear"></div>
         </div>
 
+        <div id="basket">
+
+        </div>
       </div>
 
+      <!--   Shop Section  -->
       <div class="shop">
-
         <!--     Bags    -->
         <div id="bags" class="category">
           <div id="item-1" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
@@ -67,7 +73,7 @@
           </div>
 
           <div id="item-2" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
-              Add
+            Add
             </a>
             <a href="javascript:void(0)" class="top-right rm-from-cart">
               X
@@ -91,7 +97,7 @@
           </div>
 
           <div id="item-4" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
-              Add
+            Add
             </a>
             <a href="javascript:void(0)" class="top-right rm-from-cart">
               X
@@ -106,7 +112,7 @@
         <!--    Watches    -->
         <div id="watches" class="category">
           <div id="item-5" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
-              Add
+            Add
             </a>
             <a href="javascript:void(0)" class="top-right rm-from-cart">
               X
@@ -130,7 +136,7 @@
           </div>
 
           <div id="item-7" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
-              Add
+            Add
             </a>
             <a href="javascript:void(0)" class="top-right rm-from-cart">
               X
@@ -170,7 +176,7 @@
           </div>
 
           <div id="item-10" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
-              Add
+            Add
             </a>
             <a href="javascript:void(0)" class="top-right rm-from-cart">
               X
@@ -182,7 +188,7 @@
           </div>
 
           <div id="item-11" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
-              Add
+            Add
             </a>
             <a href="javascript:void(0)" class="top-right rm-from-cart">
               X
@@ -197,7 +203,7 @@
         <!--    Clothes    -->
         <div id="clothes" class="category">
           <div id="item-12" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
-              Add
+            Add
             </a>
             <a href="javascript:void(0)" class="top-right rm-from-cart">
               X
@@ -209,7 +215,7 @@
           </div>
 
           <div id="item-13" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
-              Add
+            Add
             </a>
             <a href="javascript:void(0)" class="top-right rm-from-cart">
               X
@@ -221,7 +227,7 @@
           </div>
 
           <div id="item-14" class="col-50 shop-item"  draggable="true"><a href="javascript:void(0)" class="top-right add-to-cart">
-              Add
+            Add
             </a>
             <a href="javascript:void(0)" class="top-right rm-from-cart">
               X
@@ -232,10 +238,15 @@
             <h2>$<span class="price">45</span></h2>
           </div>
         </div>
-
       </div>
-    </div>
 
+    </div>
+    <div class="clear"></div>
+
+    <!--  Footer  -->
+    <footer>
+      <p>&copy Andela, designed by Anthony Ngene</p>
+    </footer>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/myscript.js"></script>

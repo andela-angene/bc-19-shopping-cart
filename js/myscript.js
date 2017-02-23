@@ -2,7 +2,8 @@ $(document).ready(function () {
   //Variables
   var draggable = $('.shop-item'),
       cart = document.getElementById('cart'),
-      total = $('#total');
+      total = $('#total'),
+      count = $('#count');
 
   //Functions:
   //Drag start 
@@ -26,13 +27,13 @@ $(document).ready(function () {
     if (parseInt(num.html()) > 1) {
       num.html(num.html() - 1);
       //Update total price
-      var totalPrice = parseInt(total.html()) - parseInt($(id).find('.price').html());
-      total.html(totalPrice);
+      total.html(parseInt(total.html()) - parseInt($(id).find('.price').html()));
+      count.html(parseInt(count.html()) - 1);
       $('#alert-rm').fadeIn().delay(300).slideUp();
     } else {
       //Update total price
-      var totalPrice = parseInt(total.html()) - parseInt($(id).find('.price').html());
-      total.html(totalPrice);
+      total.html(parseInt(total.html()) - parseInt($(id).find('.price').html()));
+      count.html(parseInt(count.html()) - 1);
       $(id).remove();
       $('#alert-rm').fadeIn().delay(300).slideUp();
     }
@@ -59,12 +60,12 @@ $(document).ready(function () {
       storeItem.id = newID;
 
       //Append the item to cart and set number of items in cart
-      $('#cart').append(storeItem);
+      $('#basket').append(storeItem);
       $('#' + newID + ' .num').html('1');
 
-      //Update total price
-      var totalPrice = parseInt(total.html()) + parseInt($('#' + newID + ' .price').html());
-      total.html(totalPrice);
+      //Update total price and count
+      total.html(parseInt(total.html()) + parseInt($('#' + newID + ' .price').html()));
+      count.html(parseInt(count.html()) + 1);
       $('#alert').fadeIn().delay(300).slideUp();
 
       //Add event listener to enable removal of item
@@ -74,9 +75,9 @@ $(document).ready(function () {
         removeFromCart($(this).parent().attr('id'));
       });
     } else {
-      //Update total price
-      var totalPrice = parseInt(total.html()) + parseInt($('#' + newID + ' .price').html());
-      total.html(totalPrice);
+      //Update total price and count
+      total.html(parseInt(total.html()) + parseInt($('#' + newID + ' .price').html()));
+      count.html(parseInt(count.html()) + 1);
 
       //Item already exists, increment number in cart
       var num =  $('#' + newID + ' .num');
@@ -121,6 +122,8 @@ $(document).ready(function () {
   
   //Show by categories
   $('nav a').on('click', function(){
+    $('nav a').removeClass('active');
+    $(this).addClass('active');
     $('.category').hide();
     $('#' + this.id.slice(5)).fadeIn();
   });

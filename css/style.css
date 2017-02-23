@@ -1,3 +1,9 @@
+/*
+Author: Anthony Ngene
+Primary Color(blue): #3498db
+Secondary Color(orange): #d35400
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +17,6 @@ img{
   max-width: 100%;
 }
 .clear{clear: both}
-.text-right{
-  text-align: right;
-}
 .drag-enter{
   border: 1px solid #333;
 }
@@ -64,7 +67,8 @@ header h1{
 header a{
   font-size: 20px;
   padding: 0; margin: 0;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
 }
 header li{
   display: inline-block;
@@ -83,6 +87,9 @@ nav a:hover {
 hr{
   border: none;
   border-top: 1px solid #6a6a6a;
+}
+.active{
+  border-bottom: 2px solid #d35400;
 }
 
 /*
@@ -130,9 +137,21 @@ Cart
   margin: 15px 1%;
   border-radius: 10px;
   background-color: #ecf0f1;
-  min-height: 400px;
   overflow: auto;
-
+}
+#basket{
+  min-height: 300px;
+  width: 100%;
+  background-image: url(../img/cart.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.total-price{
+  text-align: right;
+}
+.total-price h3{
+  color: #d35400;
 }
 .cart-header{
   text-align: center;
@@ -200,28 +219,51 @@ Cart
 }
 .cart .add-to-cart{display: none;}
 .shop .rm-from-cart{display: none;}
+
 /*
-Grids
+Footer
+*/
+footer{
+  padding: 30px 0;
+  background-color: #3498db;
+  text-align: center;
+}
+footer p{
+  font-size: 20px;
+  color: #fff;
+}
+
+/*
+Grids and Media Queries
 */
 .col-50{
-  width: 46%;
+  width: 45%;
   margin-left: 1%;
   float: left;
 }
 
 
 @media (max-width: 767px){
+  header{
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
+  body{padding-top: 90px;}
   .cart{
     width: 100%;
   }
   .shop{width: 100%;}
-}
-
-@media (max-width: 767px){
   .col-50{
     width: 100%;
   }
   .shop-item{width: 94%;}
   .cart .shop-item{width: 45%;}
+}
+@media (max-width: 520px){
+  header a{font-size: 16px;}
+  header li{
+    padding: 5px;
+  }
 }
 

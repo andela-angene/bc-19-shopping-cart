@@ -1,0 +1,20 @@
+{
+  "name": "bc-19-shopping-cart",
+  "version": "1.0.0",
+  "description": "*  **`Shopping Cart`** is a Front-End project focusing on DOM manipulation.\r *  It has the following features;\r   *  Has a well designed user interface, simple and elegant\r   *  Allows users to **drag** items into the shopping cart\r   *  Allows users to **drag** items out of the shopping cart\r   *  The cart collates Total Cost and number of items\r   *  Mobile friendly and responsive (displays well on mobile devices)\r   *  Has buttons that allow users on mobile devices to add/remove items from the cart\r *  Click [here](https://tonymontaro.github.io/bc-19-shopping-cart/) to access the site on GitHub Pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonymontaro/bc-19-shopping-cart.git"
+  },
+  "keywords": [],
+  "author": "Anthony Ngene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonymontaro/bc-19-shopping-cart/issues"
+  },
+  "homepage": "https://github.com/tonymontaro/bc-19-shopping-cart#readme"
+}

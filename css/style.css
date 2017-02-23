@@ -1,3 +1,9 @@
+/*
+Author: Anthony Ngene
+Primary Color(blue): #3498db
+Secondary Color(orange): #d35400
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -11,39 +17,58 @@ img{
   max-width: 100%;
 }
 .clear{clear: both}
-.text-right{
-  text-align: right;
+.drag-enter{
+  border: 1px solid #333;
 }
 
 /*
-Grids
+Alert box
 */
-.col-50{
-  width: 46%;
-  margin-left: 1%;
-  float: left;
+.alert{
+  text-align: center;
+  margin-bottom: -15px;
+  display: none;
+  padding: 20px;
+  background-color: #fff;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 1000;
+  border: 1px solid #333;
+  border-radius: 10px;
 }
+.alert h3{
+  display: inline-block;
+  position: relative;
+  background-color: #3498db;
+  color: #fff;
+  margin-top: 5px;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+#alert-rm h3{background-color: #d35400;}
 
 /*
 Navigation
 */
 header{
   width: 100%;
-  position: fixed;
-  top: 0;
+  position: relative;
   background-color: #ecf0f1;
   text-align: center;
   box-sizing: border-box;
-  z-index: 999;
 }
 header h1{
+  font-size: 25px;
   padding: 15px 0 10px 0;
-  font-weight: 100;
+  font-weight: 600;
 }
 header a{
   font-size: 20px;
   padding: 0; margin: 0;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
 }
 header li{
   display: inline-block;
@@ -63,7 +88,9 @@ hr{
   border: none;
   border-top: 1px solid #6a6a6a;
 }
-
+.active{
+  border-bottom: 2px solid #d35400;
+}
 
 /*
 Shop
@@ -75,9 +102,8 @@ Shop
 .shop{
   width: 56%;
   float: left;
-  min-height: 1700px;
   box-sizing: border-box;
-  margin-left: 15px;
+  margin-left: 1%;
   padding-top: 20px;
 }
 .shop .shop-item{
@@ -94,21 +120,38 @@ Shop
 .shop h2{
   color: #d35400;
 }
+.category{
+  display: none;
+}
+#bags{
+  display: block;
+}
 
 /*
 Cart
 */
 .cart{
   width: 40%;
-  position: fixed;
-  right: 0;
-  margin: 15px;
+  position: relative;
+  float: right;
+  margin: 15px 1%;
   border-radius: 10px;
   background-color: #ecf0f1;
-  max-height: 80%;
-  min-height: 80%;
   overflow: auto;
-
+}
+#basket{
+  min-height: 300px;
+  width: 100%;
+  background-image: url(../img/cart.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.total-price{
+  text-align: right;
+}
+.total-price h3{
+  color: #d35400;
 }
 .cart-header{
   text-align: center;
@@ -118,6 +161,7 @@ Cart
   color: #fff;
 }
 .shop-item{
+  position: relative;
   margin-bottom: 10px;
 }
 .cart .shop-item{
@@ -125,6 +169,7 @@ Cart
   margin-top: 10px;
   background-color: #fff;
   border-radius: 10px;
+  border: 1px solid #333;
 }
 .cart img{
   border-radius: 10px;
@@ -139,8 +184,6 @@ Cart
   font-size: 20px;
   color: #d35400;
 }
-
-
 .summary{
   padding: 15px;
   background-color: #bdc3c7;
@@ -150,3 +193,77 @@ Cart
 .summary h2{
   text-align: center;
 }
+
+.top-right{
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 500;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+.top-right:hover{
+  border: 2px solid #fff;
+}
+.add-to-cart{
+  background-color: #3498db;
+}
+.rm-from-cart{
+  background-color: #d35400;
+  right: 4px;
+  padding: 5px 10px;
+}
+.cart .add-to-cart{display: none;}
+.shop .rm-from-cart{display: none;}
+
+/*
+Footer
+*/
+footer{
+  padding: 30px 0;
+  background-color: #3498db;
+  text-align: center;
+}
+footer p{
+  font-size: 20px;
+  color: #fff;
+}
+
+/*
+Grids and Media Queries
+*/
+.col-50{
+  width: 45%;
+  margin-left: 1%;
+  float: left;
+}
+
+
+@media (max-width: 767px){
+  header{
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
+  body{padding-top: 90px;}
+  .cart{
+    width: 100%;
+  }
+  .shop{width: 100%;}
+  .col-50{
+    width: 100%;
+  }
+  .shop-item{width: 94%;}
+  .cart .shop-item{width: 45%;}
+}
+@media (max-width: 520px){
+  header a{font-size: 16px;}
+  header li{
+    padding: 5px;
+  }
+}
+

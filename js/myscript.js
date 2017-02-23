@@ -9,7 +9,7 @@ $(document).ready(function () {
 
   //On drag start, store the item's id
   function dragStart(event) {
-    event.dataTransfer.setData('text', this.id);
+    event.dataTransfer.setData('itemId', this.id);
   }
 
   //Add item to cart
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
       //Append the item to cart and set number of items in cart
       $('#basket').append(storeItem);
-      $('#' + newID + ' .num').html('1');
+      $('#' + newID + ' .number').html('1');
 
       //Update total price and count
       total.html(parseInt(total.html()) + parseInt($('#' + newID + ' .price').html()));
@@ -44,8 +44,8 @@ $(document).ready(function () {
     } else {
 
       //Item already exists, increment number in cart
-      var num =  $('#' + newID + ' .num');
-      num.html(parseInt(num.html()) + 1);
+      var number =  $('#' + newID + ' .number');
+      number.html(parseInt(number.html()) + 1);
       $('#alert').fadeIn().delay(300).slideUp();
 
       //Update total price and count
@@ -57,10 +57,10 @@ $(document).ready(function () {
   //Remove from cart
   function removeFromCart(id) {
     id = '#' + id;
-    var num = $(id).find('.num');
+    var number = $(id).find('.number');
 
-    if (parseInt(num.html()) > 1) {
-      num.html(num.html() - 1);
+    if (parseInt(number.html()) > 1) {
+      number.html(number.html() - 1);
       //Update total price
       total.html(parseInt(total.html()) - parseInt($(id).find('.price').html()));
       count.html(parseInt(count.html()) - 1);
@@ -92,7 +92,7 @@ $(document).ready(function () {
     $('.cart').removeClass('drag-enter');
 
     //Get the drag item id
-    var id = event.dataTransfer.getData('text');
+    var id = event.dataTransfer.getData('itemId');
     if (id === '') return;
 
     addToCart(id);
@@ -109,7 +109,7 @@ $(document).ready(function () {
   }
 
   //Show by categories
-  function showByCat(id){
+  function showByCategory(id){
     $('nav a').removeClass('active');
     $('#' + id).addClass('active');
     $('.category').hide();
@@ -134,12 +134,12 @@ $(document).ready(function () {
   }
 
   if(window.location.search){
-    showByCat(window.location.search.slice(5));
+    showByCategory(window.location.search.slice(5));
   };
 
   //Show by categories
   $('nav a').on('click', function(){
-    showByCat(this.id);
+    showByCategory(this.id);
   });
 
   //Add event listener for 'add-to-cart' button
